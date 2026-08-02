@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI as Writing Partner, Not Outsourcer"
-date: 2026-08-04
+date: 2026-08-02
 ---
 
 Like a lot of us, I'm seeing a steady up-creep of AI slop everywhere: LinkedIn feeds, articles, and yes, the occasional work doc. Some of it is as benign as the telltale style tics: "The honest take," "The re-frame," "It's not X; it's Y." The more concerning stuff is where it's just bad writing. The point is muddled, maybe there is no point, the supporting data doesn't actually support. Writing is hard. Good, clear business writing is *really* hard. There's blame to go around ([here](https://futurism.com/wired-business-insider-ai-articles), [here](https://theconversation.com/a-key-science-publishing-platform-is-cracking-down-on-ai-slop-283136), and [here](https://www.science.org/content/article/arxiv-preprint-server-clamps-down-ai-slop)), but what I keep coming back to is that I own whatever leaves my laptop. If I fire off a mess, it's my mess, and no technology or process is going to fix that.
