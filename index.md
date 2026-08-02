@@ -1,4 +1,4 @@
 ---
 layout: home
-title: Chuck Edwards
+nav_exclude: true
 ---
