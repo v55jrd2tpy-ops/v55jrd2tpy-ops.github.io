@@ -1,0 +1,28 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+$brand-color: #1F6F5C;
+
+a {
+  color: $brand-color;
+}
+
+a:visited {
+  color: $brand-color;
+}
+
+a:hover {
+  color: darken($brand-color, 10%);
+}
+
+.site-title,
+.site-title:visited {
+  color: #111;
+}
+
+.post-list > li h3 a,
+.post-title a {
+  color: $brand-color;
+}
