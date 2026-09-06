@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Experimenting with AI and ROI"
+title: "When 95% Failure Is OK"
 date: 2026-08-02
 ---
 

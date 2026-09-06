@@ -78,13 +78,6 @@ fi
 log "Changes detected:"
 git status --short
 
-# --- pull first, to avoid push conflicts -------------------------------------
-log "Pulling latest changes from origin/main..."
-if ! git pull --rebase origin main; then
-  error "git pull failed. Resolve any conflicts manually, then re-run this script."
-  exit 1
-fi
-
 # --- build commit message -----------------------------------------------------
 if [[ -z "$COMMIT_MSG" ]]; then
   # Try to name the most recently added/modified post file, else fall back
@@ -101,18 +94,29 @@ log "Commit message: \"$COMMIT_MSG\""
 if $DRY_RUN; then
   log "[dry run] Would run: git add -A"
   log "[dry run] Would run: git commit -m \"$COMMIT_MSG\""
+  log "[dry run] Would run: git pull --rebase origin main"
   log "[dry run] Would run: git push origin main"
   log "Dry run complete. No changes were made."
   exit 0
 fi
 
-# --- commit and push -------------------------------------------------------
+# --- commit locally first, so uncommitted changes never block the rebase below ----
 log "Staging changes..."
 git add -A
 
 log "Committing..."
 if ! git commit -m "$COMMIT_MSG"; then
   error "git commit failed."
+  exit 1
+fi
+
+# --- now safe to pull, since our changes are committed and can rebase cleanly -----
+log "Pulling latest changes from origin/main..."
+if ! git pull --rebase origin main; then
+  error "git pull --rebase failed, likely a real conflict with remote changes."
+  error "Your commit is saved locally. Resolve the conflict, then run:"
+  error "  git rebase --continue"
+  error "  git push origin main"
   exit 1
 fi
 
